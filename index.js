@@ -43,7 +43,12 @@ operationElement.forEach((operation) => {
   });
 });
 
-function clearValue(name) {
+/**
+ * clear the value at display two. update display one with the computation.
+ *
+ * @param {string} name
+ */
+function clearValue(name = "") {
   displayNumberOne += displayNumberTwo + " " + name + " ";
   displayElementOne.innerText = displayNumberOne;
   displayElementTwo.innerText = "0";
@@ -51,6 +56,15 @@ function clearValue(name) {
   temporayResultsElement.innerHTML = results;
 }
 
+/**
+ * performs mathematical operations based on the last operation symbol
+ * computes multiplication of numbers
+ * computes division of numbers
+ * computes subtraction of numbers
+ * computes addition of numbers
+ * computes modulus of numbers
+ *
+ *  */
 function mathOperation() {
   if (lastOperation === "x") {
     results = parseFloat(results) * parseFloat(displayNumberTwo);
@@ -68,3 +82,14 @@ function mathOperation() {
     results = parseFloat(results) % parseFloat(displayNumberTwo);
   }
 }
+
+equalElement.addEventListener("click", (e) => {
+  if (!displayNumberOne || !displayNumberTwo) return;
+  hasDot = false;
+  mathOperation();
+  clearValue();
+  displayElementTwo.innerText = results;
+  temporayResultsElement.innerText = "";
+  displayNumberTwo = results;
+  displayNumberOne = "";
+});
