@@ -4,7 +4,7 @@ const temporayResultsElement = document.querySelector(".temporary-box");
 const numbersElement = document.querySelectorAll(".number");
 const operationElement = document.querySelectorAll(".operation");
 const equalElement = document.querySelector(".equal");
-const clearElememt = document.querySelector(".all-clear");
+const clearAllElememt = document.querySelector(".all-clear");
 
 let displayNumberOne = "";
 let displayNumberTwo = "";
@@ -92,4 +92,12 @@ equalElement.addEventListener("click", (e) => {
   temporayResultsElement.innerText = "";
   displayNumberTwo = results;
   displayNumberOne = "";
+});
+
+clearAllElememt.addEventListener("click", (e) => {
+  displayElementTwo.innerText = "";
+  displayElementOne.innerText = "";
+  temporayResultsElement.innerText = "";
+  displayNumberOne = "";
+  displayNumberTwo = "";
 });
