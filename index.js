@@ -5,6 +5,7 @@ const numbersElement = document.querySelectorAll(".number");
 const operationElement = document.querySelectorAll(".operation");
 const equalElement = document.querySelector(".equal");
 const clearAllElememt = document.querySelector(".all-clear");
+const plusMinusElement = document.querySelector(".plus-minus");
 
 let displayNumberOne = "";
 let displayNumberTwo = "";
@@ -100,4 +101,11 @@ clearAllElememt.addEventListener("click", (e) => {
   temporayResultsElement.innerText = "";
   displayNumberOne = "";
   displayNumberTwo = "";
+});
+
+plusMinusElement.addEventListener("click", () => {
+  if (parseFloat(displayNumberTwo) > 0 && displayNumberTwo !== "") {
+    displayNumberTwo *= -1;
+    displayElementTwo.innerText = displayNumberTwo;
+  }
 });
