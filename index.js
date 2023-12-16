@@ -105,7 +105,10 @@ clearAllElememt.addEventListener("click", (e) => {
 
 plusMinusElement.addEventListener("click", () => {
   if (parseFloat(displayNumberTwo) > 0 && displayNumberTwo !== "") {
-    displayNumberTwo *= -1;
+    displayNumberTwo = parseFloat(displayNumberTwo) * -1;
+    displayElementTwo.innerText = displayNumberTwo;
+  } else if (parseFloat(displayNumberTwo) < 0 && displayNumberTwo !== "") {
+    displayNumberTwo = parseFloat(displayNumberTwo) * -1;
     displayElementTwo.innerText = displayNumberTwo;
   }
 });
