@@ -6,6 +6,9 @@ const operationElement = document.querySelectorAll(".operation");
 const equalElement = document.querySelector(".equal");
 const clearAllElememt = document.querySelector(".all-clear");
 const plusMinusElement = document.querySelector(".plus-minus");
+const bracketLeftElement = document.querySelector(".bracket-left");
+const bracketRightElement = document.querySelector(".bracket-right");
+const moreOperationElement = document.querySelectorAll(".more-operation");
 
 let displayNumberOne = "";
 let displayNumberTwo = "";
@@ -103,12 +106,36 @@ clearAllElememt.addEventListener("click", (e) => {
   displayNumberTwo = "";
 });
 
-plusMinusElement.addEventListener("click", () => {
-  if (parseFloat(displayNumberTwo) > 0 && displayNumberTwo !== "") {
+plusMinusElement.addEventListener("click", (e) => {
+  if (parseFloat(displayNumberTwo) > 0) {
     displayNumberTwo = parseFloat(displayNumberTwo) * -1;
     displayElementTwo.innerText = displayNumberTwo;
-  } else if (parseFloat(displayNumberTwo) < 0 && displayNumberTwo !== "") {
+  } else if (parseFloat(displayNumberTwo) < 0) {
     displayNumberTwo = parseFloat(displayNumberTwo) * -1;
     displayElementTwo.innerText = displayNumberTwo;
   }
 });
+
+//more operations
+
+/* moreOperationElement.addEventListener("click", (e) => {
+  if (parseFloat(displayNumberTwo) > 0) {
+    displayNumberTwo = Math.sqrt(parseFloat(displayNumberTwo));
+    displayElementTwo.innerText = displayNumberTwo;
+  }
+});
+ */
+moreOperationElement.forEach((moreOperation) => {
+  moreOperation.addEventListener("click", (e) => {
+    displayNumberTwo = moreMathOperation(e);
+    displayElementTwo.innerText = displayNumberTwo;
+  });
+});
+
+function moreMathOperation(e) {
+  if (e.target.innerText === String.fromCharCode(8730)) {
+    if (parseFloat(displayNumberTwo) > 0) {
+      return Math.sqrt(parseFloat(displayNumberTwo));
+    }
+  }
+}
