@@ -136,6 +136,12 @@ function moreMathOperation(e) {
   if (e.target.innerText === String.fromCharCode(8730)) {
     if (parseFloat(displayNumberTwo) > 0) {
       return Math.sqrt(parseFloat(displayNumberTwo));
+    } else {
+      return "ERROR";
     }
+  }
+
+  if (e.target.innerText === String.fromCharCode(8731)) {
+    return Math.cbrt(parseFloat(displayNumberTwo));
   }
 }
