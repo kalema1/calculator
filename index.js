@@ -146,4 +146,10 @@ function moreMathOperation(e) {
   if (e.target.innerText === "x" + String.fromCharCode(178)) {
     return Math.pow(parseFloat(displayNumberTwo), 2);
   }
+  if (e.target.innerText === "x" + String.fromCharCode(179)) {
+    return Math.pow(parseFloat(displayNumberTwo), 3);
+  }
+  if (e.target.innerText === "ex") {
+    return Math.exp(displayNumberTwo);
+  }
 }
