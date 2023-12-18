@@ -134,6 +134,11 @@ moreOperationElement.forEach((moreOperation) => {
 
 function moreMathOperation(e) {
   if (e.target.innerText === String.fromCharCode(8730)) {
+    if (
+      isNaN(displayNumberTwo) ||
+      typeof parseFloat(displayNumberTwo) !== "number"
+    )
+      return "SYNTAX";
     if (parseFloat(displayNumberTwo) > 0) {
       return Math.sqrt(parseFloat(displayNumberTwo));
     } else {
@@ -141,15 +146,43 @@ function moreMathOperation(e) {
     }
   }
   if (e.target.innerText === String.fromCharCode(8731)) {
+    if (
+      isNaN(displayNumberTwo) ||
+      typeof parseFloat(displayNumberTwo) !== "number"
+    )
+      return "SYNTAX";
     return Math.cbrt(parseFloat(displayNumberTwo));
   }
   if (e.target.innerText === "x" + String.fromCharCode(178)) {
+    if (
+      isNaN(displayNumberTwo) ||
+      typeof parseFloat(displayNumberTwo) !== "number"
+    )
+      return "SYNTAX";
     return Math.pow(parseFloat(displayNumberTwo), 2);
   }
   if (e.target.innerText === "x" + String.fromCharCode(179)) {
+    if (
+      isNaN(displayNumberTwo) ||
+      typeof parseFloat(displayNumberTwo) !== "number"
+    )
+      return "SYNTAX";
     return Math.pow(parseFloat(displayNumberTwo), 3);
   }
   if (e.target.innerText === "ex") {
-    return Math.exp(displayNumberTwo);
+    if (
+      isNaN(displayNumberTwo) ||
+      typeof parseFloat(displayNumberTwo) !== "number"
+    )
+      return "SYNTAX";
+    return Math.exp(parseFloat(displayNumberTwo));
+  }
+  if (e.target.innerText === "10x") {
+    if (
+      isNaN(displayNumberTwo) ||
+      typeof parseFloat(displayNumberTwo) !== "number"
+    )
+      return "SYNTAX";
+    return Math.pow(10, parseFloat(displayNumberTwo));
   }
 }
