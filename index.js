@@ -135,6 +135,7 @@ moreOperationElement.forEach((moreOperation) => {
 function moreMathOperation(e) {
   if (e.target.innerText === String.fromCharCode(8730)) {
     if (
+      displayNumberTwo == "" ||
       isNaN(displayNumberTwo) ||
       typeof parseFloat(displayNumberTwo) !== "number"
     )
@@ -147,6 +148,7 @@ function moreMathOperation(e) {
   }
   if (e.target.innerText === String.fromCharCode(8731)) {
     if (
+      displayNumberTwo == "" ||
       isNaN(displayNumberTwo) ||
       typeof parseFloat(displayNumberTwo) !== "number"
     )
@@ -155,14 +157,18 @@ function moreMathOperation(e) {
   }
   if (e.target.innerText === "x" + String.fromCharCode(178)) {
     if (
-      isNaN(displayNumberTwo) ||
-      typeof parseFloat(displayNumberTwo) !== "number"
-    )
+      displayNumberTwo == "" ||
+      isNaN(displayNumberTwo)
+      /* isNaN(displayNumberTwo) ||
+      typeof parseFloat(displayNumberTwo) !== "number" */
+    ) {
       return "SYNTAX";
+    }
     return Math.pow(parseFloat(displayNumberTwo), 2);
   }
   if (e.target.innerText === "x" + String.fromCharCode(179)) {
     if (
+      displayNumberTwo == "" ||
       isNaN(displayNumberTwo) ||
       typeof parseFloat(displayNumberTwo) !== "number"
     )
@@ -171,6 +177,7 @@ function moreMathOperation(e) {
   }
   if (e.target.innerText === "ex") {
     if (
+      displayNumberTwo == "" ||
       isNaN(displayNumberTwo) ||
       typeof parseFloat(displayNumberTwo) !== "number"
     )
@@ -179,10 +186,46 @@ function moreMathOperation(e) {
   }
   if (e.target.innerText === "10x") {
     if (
+      displayNumberTwo == "" ||
       isNaN(displayNumberTwo) ||
       typeof parseFloat(displayNumberTwo) !== "number"
     )
       return "SYNTAX";
     return Math.pow(10, parseFloat(displayNumberTwo));
+  }
+  if (e.target.innerText === "ln") {
+    if (
+      displayNumberTwo == "" ||
+      isNaN(displayNumberTwo) ||
+      typeof parseFloat(displayNumberTwo) !== "number"
+    )
+      return "SYNTAX";
+    try {
+      if (parseFloat(displayNumberTwo) > 0) {
+        return Math.log(parseFloat(displayNumberTwo));
+      } else {
+        throw new Error("ERROR");
+      }
+    } catch (err) {
+      return err.name.toUpperCase();
+    }
+  }
+
+  if (e.target.innerText === "log10") {
+    if (
+      displayNumberTwo == "" ||
+      isNaN(displayNumberTwo) ||
+      typeof parseFloat(displayNumberTwo) !== "number"
+    )
+      return "SYNTAX";
+    try {
+      if (parseFloat(displayNumberTwo) > 0) {
+        return Math.log10(parseFloat(displayNumberTwo));
+      } else {
+        throw new Error("ERROR");
+      }
+    } catch (err) {
+      return err.name.toUpperCase();
+    }
   }
 }
