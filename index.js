@@ -140,8 +140,10 @@ function moreMathOperation(e) {
       return "ERROR";
     }
   }
-
   if (e.target.innerText === String.fromCharCode(8731)) {
     return Math.cbrt(parseFloat(displayNumberTwo));
+  }
+  if (e.target.innerText === "x" + String.fromCharCode(178)) {
+    return Math.pow(parseFloat(displayNumberTwo), 2);
   }
 }
