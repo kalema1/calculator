@@ -228,4 +228,52 @@ function moreMathOperation(e) {
       return err.name.toUpperCase();
     }
   }
+
+  if (e.target.innerText === "sin") {
+    try {
+      if (
+        displayNumberTwo !== "" &&
+        typeof parseFloat(displayNumberTwo) === "number" &&
+        !isNaN(displayNumberTwo)
+      ) {
+        return Math.sin(parseFloat(displayNumberTwo));
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      return "SYNTAX";
+    }
+  }
+
+  if (e.target.innerText === "cos") {
+    try {
+      if (
+        displayNumberTwo !== "" &&
+        typeof parseFloat(displayNumberTwo) === "number" &&
+        !isNaN(displayNumberTwo)
+      ) {
+        return Math.cos(parseFloat(displayNumberTwo));
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      return "SYNTAX";
+    }
+  }
+
+  if (e.target.innerText === "tan") {
+    try {
+      if (
+        displayNumberTwo !== "" &&
+        typeof parseFloat(displayNumberTwo) === "number" &&
+        !isNaN(displayNumberTwo)
+      ) {
+        return Math.tan(parseFloat(displayNumberTwo));
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      return "SYNTAX";
+    }
+  }
 }
