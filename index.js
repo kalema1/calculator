@@ -334,4 +334,36 @@ function moreMathOperation(e) {
     hasDot = true;
     return Math.PI;
   }
+
+  if (e.target.innerText === "X!") {
+    try {
+      if (
+        displayNumberTwo !== "" &&
+        typeof parseFloat(displayNumberTwo) === "number" &&
+        !isNaN(displayNumberTwo) &&
+        parseFloat(displayNumberTwo) >= 0
+      ) {
+        return getFactorial(parseFloat(displayNumberTwo));
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      return "ERROR";
+    }
+  }
+}
+
+/**
+ * Returns the factorial of the specified integer n.
+ *
+ * @param {number} n
+ * @return {number}
+ *
+ */
+function getFactorial(n) {
+  if (n == 0 || n == 1) {
+    return 1;
+  } else {
+    return n * getFactorial(n - 1);
+  }
 }
