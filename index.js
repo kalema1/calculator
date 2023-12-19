@@ -276,4 +276,62 @@ function moreMathOperation(e) {
       return "SYNTAX";
     }
   }
+
+  if (e.target.innerText === "sinh") {
+    try {
+      if (
+        displayNumberTwo !== "" &&
+        typeof parseFloat(displayNumberTwo) === "number" &&
+        !isNaN(displayNumberTwo)
+      ) {
+        return Math.sinh(parseFloat(displayNumberTwo));
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      return "SYNTAX";
+    }
+  }
+
+  if (e.target.innerText === "tanh") {
+    try {
+      if (
+        displayNumberTwo !== "" &&
+        typeof parseFloat(displayNumberTwo) === "number" &&
+        !isNaN(displayNumberTwo)
+      ) {
+        return Math.tanh(parseFloat(displayNumberTwo));
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      return "SYNTAX";
+    }
+  }
+
+  if (e.target.innerText === "cosh") {
+    try {
+      if (
+        displayNumberTwo !== "" &&
+        typeof parseFloat(displayNumberTwo) === "number" &&
+        !isNaN(displayNumberTwo)
+      ) {
+        return Math.cosh(parseFloat(displayNumberTwo));
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      return "SYNTAX";
+    }
+  }
+
+  if (e.target.innerText === "e") {
+    hasDot = true;
+    return Math.E;
+  }
+
+  if (e.target.innerText === String.fromCharCode(960)) {
+    hasDot = true;
+    return Math.PI;
+  }
 }
