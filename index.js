@@ -351,6 +351,23 @@ function moreMathOperation(e) {
       return "ERROR";
     }
   }
+
+  if (e.target.innerText === "1/x") {
+    try {
+      if (
+        displayNumberTwo !== "" &&
+        typeof parseFloat(displayNumberTwo) === "number" &&
+        !isNaN(displayNumberTwo) &&
+        parseFloat(displayNumberTwo) !== 0
+      ) {
+        return 1 / parseFloat(displayNumberTwo);
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      return "ERROR";
+    }
+  }
 }
 
 /**
