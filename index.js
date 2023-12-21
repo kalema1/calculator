@@ -24,6 +24,11 @@ numbersElement.forEach((number) => {
     } else if (e.target.innerText === "." && hasDot) {
       return;
     }
+
+    /* check if its a first zero */
+    if (displayNumberTwo === "0") {
+      displayNumberTwo = "";
+    }
     /* display numbers on screen */
     displayNumberTwo += e.target.innerText;
     displayElementTwo.innerText = displayNumberTwo;
@@ -118,13 +123,6 @@ plusMinusElement.addEventListener("click", (e) => {
 
 //more operations
 
-/* moreOperationElement.addEventListener("click", (e) => {
-  if (parseFloat(displayNumberTwo) > 0) {
-    displayNumberTwo = Math.sqrt(parseFloat(displayNumberTwo));
-    displayElementTwo.innerText = displayNumberTwo;
-  }
-});
- */
 moreOperationElement.forEach((moreOperation) => {
   moreOperation.addEventListener("click", (e) => {
     displayNumberTwo = moreMathOperation(e);
@@ -132,6 +130,13 @@ moreOperationElement.forEach((moreOperation) => {
   });
 });
 
+/**
+ * Returns the mathematical operation of the input.
+ *
+ * @param {string} e
+ * @return {number}
+ *
+ */
 function moreMathOperation(e) {
   if (e.target.innerText === String.fromCharCode(8730)) {
     if (
