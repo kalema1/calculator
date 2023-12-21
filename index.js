@@ -378,6 +378,10 @@ function moreMathOperation(e) {
     hasDot = true;
     return Math.random();
   }
+
+  if (e.target.innerText === "DEL") {
+    return displayNumberTwo.slice(0, -1);
+  }
 }
 
 /**
