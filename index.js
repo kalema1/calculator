@@ -9,6 +9,8 @@ const plusMinusElement = document.querySelector(".plus-minus");
 const bracketLeftElement = document.querySelector(".bracket-left");
 const bracketRightElement = document.querySelector(".bracket-right");
 const moreOperationElement = document.querySelectorAll(".more-operation");
+const toggleElement = document.querySelector(".toggle");
+const buttonToggleElement = document.querySelector(".toggle-btn");
 
 let displayNumberOne = "";
 let displayNumberTwo = "";
@@ -398,3 +400,7 @@ function getFactorial(n) {
     return n * getFactorial(n - 1);
   }
 }
+// toggle the btn
+toggleElement.addEventListener("click", () => {
+  buttonToggleElement.classList.toggle("toggle-btn");
+});
