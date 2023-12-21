@@ -373,6 +373,11 @@ function moreMathOperation(e) {
       return "ERROR";
     }
   }
+
+  if (e.target.innerText === "Rand") {
+    hasDot = true;
+    return Math.random();
+  }
 }
 
 /**
