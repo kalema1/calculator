@@ -89,6 +89,7 @@ body {
 /**********************************************/
 @media (max-width: 35em) {
   .calculator-section {
+    margin: 0 1rem;
     margin-top: 5rem;
   }
   .keys {
