@@ -11,6 +11,7 @@ const bracketRightElement = document.querySelector(".bracket-right");
 const moreOperationElement = document.querySelectorAll(".more-operation");
 const toggleElement = document.querySelector(".toggle");
 const buttonToggleElement = document.querySelector(".toggle-btn");
+//const exponentElement = document.querySelector(".exponent");
 
 let displayNumberOne = "";
 let displayNumberTwo = "";
@@ -92,6 +93,10 @@ function mathOperation() {
   if (lastOperation === "%") {
     results = parseFloat(results) % parseFloat(displayNumberTwo);
   }
+  if (lastOperation === "^") {
+    //const values = displayNumberTwo.split("^");
+    results = Math.pow(parseFloat(results), parseFloat(displayNumberTwo));
+  }
 }
 
 equalElement.addEventListener("click", (e) => {
@@ -163,13 +168,8 @@ function moreMathOperation(e) {
     return Math.cbrt(parseFloat(displayNumberTwo));
   }
   if (e.target.innerText === "x" + String.fromCharCode(178)) {
-    if (
-      displayNumberTwo == "" ||
-      isNaN(displayNumberTwo)
-      /* isNaN(displayNumberTwo) ||
-      typeof parseFloat(displayNumberTwo) !== "number" */
-    ) {
-      return "SYNTAX";
+    if (displayNumberTwo == "" || isNaN(displayNumberTwo)) {
+      return "";
     }
     return Math.pow(parseFloat(displayNumberTwo), 2);
   }
@@ -179,7 +179,7 @@ function moreMathOperation(e) {
       isNaN(displayNumberTwo) ||
       typeof parseFloat(displayNumberTwo) !== "number"
     )
-      return "SYNTAX";
+      return "";
     return Math.pow(parseFloat(displayNumberTwo), 3);
   }
   if (e.target.innerText === "ex") {
