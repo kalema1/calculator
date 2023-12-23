@@ -11,12 +11,18 @@ const bracketRightElement = document.querySelector(".bracket-right");
 const moreOperationElement = document.querySelectorAll(".more-operation");
 const toggleElement = document.querySelector(".toggle");
 const buttonToggleElement = document.querySelector(".toggle-btn");
+const memoryStoreElement = document.querySelector(".memory-store");
+const memoryClearElement = document.querySelector(".memory-clear");
+const memoryRecallElement = document.querySelector(".memory-recall");
+const memoryPlusElement = document.querySelector(".memory-plus");
+const memoryMinusElement = document.querySelector(".memory-minus");
 
 let displayNumberOne = "";
 let displayNumberTwo = "";
 let results = null;
 let lastOperation = "";
 let hasDot = false;
+let memoryValue = 0;
 
 numbersElement.forEach((number) => {
   number.addEventListener("click", (e) => {
@@ -416,4 +422,29 @@ function getFactorial(n) {
 // toggle the btn
 toggleElement.addEventListener("click", () => {
   buttonToggleElement.classList.toggle("toggle-btn");
+});
+
+/* memory functionality */
+
+memoryStoreElement.addEventListener("click", () => {
+  memoryValue = parseFloat(displayNumberTwo);
+});
+
+memoryClearElement.addEventListener("click", () => {
+  memoryValue = 0;
+});
+
+memoryRecallElement.addEventListener("click", () => {
+  displayNumberTwo = memoryValue.toString();
+  displayElementTwo.innerText = displayNumberTwo;
+});
+
+memoryMinusElement.addEventListener("click", () => {
+  memoryValue -= displayNumberTwo;
+  displayElementTwo.innerText = memoryValue;
+});
+
+memoryPlusElement.addEventListener("click", () => {
+  memoryValue += displayNumberTwo;
+  displayElementTwo.innerText = memoryValue;
 });

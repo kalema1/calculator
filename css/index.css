@@ -99,8 +99,12 @@ body {
 /**********************************************/
 @media (max-width: 35em) {
   .calculator-section {
+    height: 100vh;
     margin: 0 1rem;
-    margin-top: 5rem;
+    /* margin-top: 3rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .keys {
     grid-template-columns: 1fr;
