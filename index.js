@@ -47,6 +47,8 @@ operationElement.forEach((operation) => {
 
     if (e.target.innerText === "EE") {
       operationName = "E";
+    } else if (e.target.innerText === "y" + String.fromCharCode(8730) + "x") {
+      operationName = String.fromCharCode(8730);
     } else {
       operationName = e.target.innerText;
     }
@@ -104,6 +106,9 @@ function mathOperation() {
   }
   if (lastOperation === "E") {
     results = parseFloat(results) * Math.pow(10, parseFloat(displayNumberTwo));
+  }
+  if (lastOperation === String.fromCharCode(8730)) {
+    results = Math.pow(parseFloat(displayNumberTwo), parseFloat(1 / results));
   }
 }
 
