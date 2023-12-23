@@ -11,7 +11,6 @@ const bracketRightElement = document.querySelector(".bracket-right");
 const moreOperationElement = document.querySelectorAll(".more-operation");
 const toggleElement = document.querySelector(".toggle");
 const buttonToggleElement = document.querySelector(".toggle-btn");
-//const exponentElement = document.querySelector(".exponent");
 
 let displayNumberOne = "";
 let displayNumberTwo = "";
@@ -43,7 +42,14 @@ operationElement.forEach((operation) => {
     /* check if there is a number for operation */
     if (!displayNumberTwo) return;
     hasDot = false;
-    let operationName = e.target.innerText;
+    //let operationName = e.target.innerText;
+    let operationName;
+
+    if (e.target.innerText === "EE") {
+      operationName = "E";
+    } else {
+      operationName = e.target.innerText;
+    }
     if (displayNumberOne && displayElementTwo && lastOperation) {
       mathOperation();
     } else {
@@ -94,8 +100,10 @@ function mathOperation() {
     results = parseFloat(results) % parseFloat(displayNumberTwo);
   }
   if (lastOperation === "^") {
-    //const values = displayNumberTwo.split("^");
     results = Math.pow(parseFloat(results), parseFloat(displayNumberTwo));
+  }
+  if (lastOperation === "E") {
+    results = parseFloat(results) * Math.pow(10, parseFloat(displayNumberTwo));
   }
 }
 
