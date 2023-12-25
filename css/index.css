@@ -118,7 +118,7 @@ body {
   .toggle {
     margin: 1rem;
     display: flex;
-    gap: 1rem;
+    gap: 0.4rem;
     align-items: center;
     width: 100%;
   }

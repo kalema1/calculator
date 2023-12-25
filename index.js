@@ -96,10 +96,16 @@ function mathOperation() {
     results = parseFloat(results) * parseFloat(displayNumberTwo);
   }
   if (lastOperation === "+") {
-    results = parseFloat(results) + parseFloat(displayNumberTwo);
+    results =
+      (parseFloat(results) * 100000000000000000 +
+        parseFloat(displayNumberTwo) * 100000000000000000) /
+      100000000000000000;
   }
   if (lastOperation === "-") {
-    results = parseFloat(results) - parseFloat(displayNumberTwo);
+    results =
+      (parseFloat(results) * 100000000000000000 -
+        parseFloat(displayNumberTwo) * 100000000000000000) /
+      100000000000000000;
   }
   if (lastOperation === String.fromCharCode(247)) {
     results = parseFloat(results) / parseFloat(displayNumberTwo);
@@ -440,11 +446,11 @@ memoryRecallElement.addEventListener("click", () => {
 });
 
 memoryMinusElement.addEventListener("click", () => {
-  memoryValue -= displayNumberTwo;
+  memoryValue -= parseFloat(displayNumberTwo);
   displayElementTwo.innerText = memoryValue;
 });
 
 memoryPlusElement.addEventListener("click", () => {
-  memoryValue += displayNumberTwo;
+  memoryValue += parseFloat(displayNumberTwo);
   displayElementTwo.innerText = memoryValue;
 });
