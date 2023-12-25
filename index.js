@@ -16,6 +16,9 @@ const memoryClearElement = document.querySelector(".memory-clear");
 const memoryRecallElement = document.querySelector(".memory-recall");
 const memoryPlusElement = document.querySelector(".memory-plus");
 const memoryMinusElement = document.querySelector(".memory-minus");
+const radianElement = document.querySelector(".rad");
+const degreeElement = document.querySelector(".deg");
+const radianDisplayElement = document.querySelector(".rad-box");
 
 let displayNumberOne = "";
 let displayNumberTwo = "";
@@ -23,6 +26,8 @@ let results = null;
 let lastOperation = "";
 let hasDot = false;
 let memoryValue = 0;
+let isRadian = false;
+let radian = Math.PI / 180;
 
 numbersElement.forEach((number) => {
   number.addEventListener("click", (e) => {
@@ -133,6 +138,7 @@ equalElement.addEventListener("click", (e) => {
   temporayResultsElement.innerText = "";
   displayNumberTwo = results;
   displayNumberOne = "";
+  displayNumberTwo = "";
 });
 
 clearAllElememt.addEventListener("click", (e) => {
@@ -268,7 +274,7 @@ function moreMathOperation(e) {
         typeof parseFloat(displayNumberTwo) === "number" &&
         !isNaN(displayNumberTwo)
       ) {
-        return Math.sin(parseFloat(displayNumberTwo));
+        return Math.sin(parseFloat(displayNumberTwo) * radian);
       } else {
         throw new Error();
       }
@@ -284,7 +290,7 @@ function moreMathOperation(e) {
         typeof parseFloat(displayNumberTwo) === "number" &&
         !isNaN(displayNumberTwo)
       ) {
-        return Math.cos(parseFloat(displayNumberTwo));
+        return Math.cos(parseFloat(displayNumberTwo) * radian);
       } else {
         throw new Error();
       }
@@ -300,7 +306,7 @@ function moreMathOperation(e) {
         typeof parseFloat(displayNumberTwo) === "number" &&
         !isNaN(displayNumberTwo)
       ) {
-        return Math.tan(parseFloat(displayNumberTwo));
+        return Math.tan(parseFloat(displayNumberTwo) * radian);
       } else {
         throw new Error();
       }
@@ -453,4 +459,21 @@ memoryMinusElement.addEventListener("click", () => {
 memoryPlusElement.addEventListener("click", () => {
   memoryValue += parseFloat(displayNumberTwo);
   displayElementTwo.innerText = memoryValue;
+});
+
+/* radian implementation */
+radianElement.addEventListener("click", () => {
+  isRadian = true;
+  if (isRadian) {
+    radian = 1;
+    radianDisplayElement.classList.add("rad-show");
+  }
+});
+
+degreeElement.addEventListener("click", () => {
+  isRadian = false;
+  if (!isRadian) {
+    radian = Math.PI / 180;
+    radianDisplayElement.classList.remove("rad-show");
+  }
 });

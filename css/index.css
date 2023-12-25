@@ -27,6 +27,7 @@ body {
   flex-direction: column;
   align-items: flex-end;
   color: #333;
+  position: relative;
 }
 .display-box1 {
   padding: 1rem 1rem 0 0;
@@ -43,6 +44,18 @@ body {
   font-size: 1.8rem;
   padding: 0 0 0 3rem;
   opacity: 0.4;
+}
+.rad-box {
+  font-size: 1.4rem;
+  position: absolute;
+  top: 2%;
+  left: 5%;
+  font-weight: 500;
+  background: #d1d5db;
+  display: none;
+}
+.rad-box.rad-show {
+  display: block;
 }
 
 .toggle {
@@ -79,7 +92,7 @@ body {
 .btn.main-operators {
   background: #44403c;
 }
-.rad {
+.cosh {
   border-radius: 0 0 0 1rem;
 }
 .equal {
@@ -109,7 +122,7 @@ body {
   .keys {
     grid-template-columns: 1fr;
   }
-  .rad {
+  .cosh {
     border-radius: 0;
   }
   .rand {
