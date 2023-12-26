@@ -98,7 +98,10 @@ function clearValue(name = "") {
  *  */
 function mathOperation() {
   if (lastOperation === "x") {
-    results = parseFloat(results) * parseFloat(displayNumberTwo);
+    results =
+      (parseFloat(results) *
+        parseFloat(displayNumberTwo * 100000000000000000)) /
+      100000000000000000;
   }
   if (lastOperation === "+") {
     results =
