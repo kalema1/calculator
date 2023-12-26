@@ -165,6 +165,7 @@ moreOperationElement.forEach((moreOperation) => {
   moreOperation.addEventListener("click", (e) => {
     displayNumberTwo = moreMathOperation(e);
     displayElementTwo.innerText = displayNumberTwo;
+    displayNumberTwo = "";
   });
 });
 
@@ -452,12 +453,20 @@ memoryRecallElement.addEventListener("click", () => {
 });
 
 memoryMinusElement.addEventListener("click", () => {
-  memoryValue -= parseFloat(displayNumberTwo);
+  if (displayNumberTwo === "") {
+    memoryValue = 0;
+  } else {
+    memoryValue -= parseFloat(displayNumberTwo);
+  }
   displayElementTwo.innerText = memoryValue;
 });
 
 memoryPlusElement.addEventListener("click", () => {
-  memoryValue += parseFloat(displayNumberTwo);
+  if (displayNumberTwo === "") {
+    memoryValue = 0;
+  } else {
+    memoryValue += parseFloat(displayNumberTwo);
+  }
   displayElementTwo.innerText = memoryValue;
 });
 
@@ -477,3 +486,10 @@ degreeElement.addEventListener("click", () => {
     radianDisplayElement.classList.remove("rad-show");
   }
 });
+
+module.exports = {
+  clearValue: clearValue,
+  mathOperation: mathOperation,
+  moreMathOperation: moreMathOperation,
+  getFactorial: getFactorial,
+};
